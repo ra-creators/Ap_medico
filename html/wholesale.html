@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical|home</title>
+    <!-- pure css -->
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg  navbar-dark ">
+      <div class="container">
+          <h2>Apmedico</h2>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+        <div class="collapse navbar-collapse m10" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0  ">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="" href="indexnew.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="about.html">About</a>
+            </li>
+           
+            <li class="nav-item">
+              <a class="nav-link active" href="contact.html">Contact</a>
+            </li>
+           
+            <li class="nav-item">
+              <a class="nav-link active" href="wholesale.html">wholesale</a>
+            </li>
+          </ul>
+          
+        </div>
+      </div>
+  </nav>
+  <!-- navbar -->
+  <!-- navbar -->
+    <div class="payhead">
+      <div class="container">
+          <h1 class="heading-info">Shop medicine by wholesale</h1>
+      </div>
+    </div>
+    <div class=" p-5 searchbg">
+        <div class="search-for-med">
+            <h2>Search for Medicines by list</h2><br>
+            <input id="txt" type="text" placeholder="Search" list="med" />
+            <datalist id="med">
+              <option value="Paracitamol"></option>
+              <option value="Bandaid"></option>
+              <option value="First aid"></option>
+              <option value="Opera"></option>
+              <option value="Safari"></option>
+            </datalist>
+          </div>
+          <br>
+          <br>
+          <hr>
+          <div class="cart">
+            
+          </div>
+          <a href="payment.html" class="next-btn text-center">Next</a>
+        </div>
+    </div>
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-grid">
+            <div class="footer-heading">
+                <div class="leoshine">
+                    <span class="brand-text">Apmedico</span>
+                    <p class="footer-para">Scelerisque sit et bibendum molestie duis in velit dis. Ac viverra nunc nulla sed dui. Et faucibus lobortis ultrices fermentum luctus feugiat semper. </p>
+                </div>
+            </div>
+            <div class="footer-about">
+                <ul>
+                    <li>About Us</li>
+                    <li>Shop</li>
+                    <li>Term</li>
+                    <li>Services</li>
+                    <li>Contact Us</li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <span>Contact Us</span>
+                <div class="contact-felx">
+                    <div class="icon">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                    </div>
+                    <div class="">
+                        <span>apmedico@gmail.com</span>
+                    </div>
+                </div>
+                <div class="contact-felx">
+                    <div class="icon">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                    </div>
+                    <div class="">
+                        <span>9876543210</span>
+                    </div>
+                </div>
+                <div class="contact-felx">
+                    <div class="icon">
+                        <i class="fa fa-map-marker-alt" aria-hidden="true"></i>
+                    </div>
+                    <div class="">
+                        <span>2118 Thornridge cir.syracuse, connecticut 35624</span>
+                    </div>
+                </div>
+            </div>
+            <div class="singup">
+                <span> Sing up for Update</span>
+                <input type="text" name="" id="" placeholder="Email"><br>
+                <input type="submit" value="Submit" class="btn btn-dark">
+            </div>
+        </div>
+    </div>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/myjs.js"></script>
+    <script src="https://kit.fontawesome.com/9dddb02c5f.js" crossorigin="anonymous"></script>
+    <script>
+      const inputText = document.querySelector("#txt");
+      const list = document.querySelector(".cart");
+      inputText.addEventListener("keyup", (e) => {
+        if (e.keyCode === 13) {
+          console.log(e.target.value);
+          if (inputText.value !== "") {
+            const myItem = document.createElement("div");
+            const itemDetail = document.createElement("div");
+            const productName = document.createElement("h1");
+            const price = document.createElement("div");
+            const dates = document.createElement("div");
+            const span = document.createElement("span");
+
+            itemDetail.className = "detail";
+            myItem.className = "item";
+            productName.className = "product-name";
+            price.className = "price";
+            price.innerHTML = "MRP -";
+            price.appendChild(span);
+            span.innerHTML = "230";
+            dates.className = "dates";
+            dates.innerHTML = "MFD-230 and Expiry Date -2030";
+            productName.innerHTML = inputText.value;
+            itemDetail.appendChild(productName);
+            itemDetail.appendChild(price);
+            itemDetail.appendChild(dates);
+            myItem.appendChild(itemDetail);
+            inputText.value="";
+
+            //counter
+            const counter = document.createElement("div");
+            const counterSpan = document.createElement("span");
+            const addBtn = document.createElement("span");
+            const count = document.createElement("span");
+            const subBtn = document.createElement("span");
+            counter.className = "counter";
+            counter.innerHTML = "Qty ";
+            addBtn.className = "add-btn";
+            addBtn.innerHTML = "+";
+            addBtn.addEventListener("click", () => {
+              let buttonClicked = event.target;
+              let input = buttonClicked.parentElement.children[1];
+              let inputValue = input.innerHTML;
+              let newValue = parseInt(inputValue) + 1;
+              input.innerHTML = newValue;
+            });
+            count.className = "count";
+            count.innerHTML = "0";
+            subBtn.className = "sub-btn";
+            subBtn.innerHTML = "-";
+            subBtn.addEventListener("click", () => {
+              let buttonClicked = event.target;
+              let input = buttonClicked.parentElement.children[1];
+              let inputValue = input.innerHTML;
+              let newValue = parseInt(inputValue) - 1;
+              if(newValue >= 0){
+              input.innerHTML = newValue;  
+            }
+            else{
+              input.innerHTML=="0";
+            }
+            });
+            // <div class="delete"><i class="fas fa-trash-alt"></i></div>
+            const deleteBtn = document.createElement('div');
+            const dltIcon = document.createElement('i');
+            deleteBtn.className = "delete";
+            dltIcon.className = "fas fa-trash-alt";
+            deleteBtn.appendChild(dltIcon);
+            deleteBtn.addEventListener("click", ()=>{
+              deleteBtn.parentElement.remove();
+            })
+            counter.appendChild(addBtn);
+            counter.appendChild(count);
+            counter.appendChild(subBtn);
+            myItem.appendChild(counter);
+            myItem.appendChild(deleteBtn);
+            list.appendChild(myItem);
+          }
+        }
+      });
+    </script>
+           
+</body>
+</html>
