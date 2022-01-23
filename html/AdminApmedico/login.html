@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin|login</title>
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- style css -->
+
+</head>
+<style>
+    .container{
+        max-width: 1200x;
+        width: 90%;
+        margin:auto;
+    }
+    .login-form{
+        position:absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        border: solid#fff;
+        border-radius: 2rem;
+        padding: 1.5rem 3rem;
+        text-align: center;
+        color: #fff;
+    
+        
+    }
+    .login-form label{
+        font-size: 1.5rem;
+        color: #ffffff;
+    }
+    .login-form input{
+        border-radius: 1rem;
+        padding: 0.5rem 1.5rem;
+        border: solid black;
+        outline: none;
+    }
+    body{
+        background: #0F2027;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        ;
+    }
+    .user-icon{
+        font-size: 5rem;
+        color: #ffffff;
+        display: inline;
+    }
+    
+
+</style>
+<body>
+    <div class="container">
+        <div class="login-form">
+            <div class="form-in">
+                <form action="">
+                    <h2 class="user-icon"><i class="fa fa-user text-center" aria-hidden="true"></i></h2>
+                    <h1>Admin Login</h1>
+                    <label for="username">Username</label> <br><br>
+                    <input type="text" name="" id="" placeholder="Username"> <br><br>
+                    <label for="password">Password</label><br><br>
+                    <input type="password" name="" id="" placeholder="Password"><br><br>
+                    <input type="submit" value="Login" class="btn " id ="loginbtn">
+                </form>         
+            </div>       
+        </div> 
+    </div>
+</body>
+</html>
