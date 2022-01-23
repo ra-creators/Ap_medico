@@ -1,3 +1,20 @@
+<?php
+    /*session_start();
+
+    if(!isset($_SESSION["username"]))
+           {
+              echo "user not set";
+              include 'navbar1.php';
+              //header("location:indexnew.php");
+            }
+            else {
+              echo "user set";
+              include 'navbar.php';
+              //header("location:");
+            }
+            */
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,33 +34,9 @@
 <body>
 
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg  navbar-dark ">
-        <div class="container">
-            <h2>Apmedico</h2>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-          <div class="collapse navbar-collapse m10" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0  ">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="" href="indexnew.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="about.html">About</a>
-              </li>
-             
-              <li class="nav-item">
-                <a class="nav-link active" href="contact.html">Contact</a>
-              </li>
-             
-              <li class="nav-item">
-                <a class="nav-link active" href="wholesale.html">wholesale</a>
-              </li>
-            </ul>
-            
-          </div>
-        </div>
-    </nav>
+    <?php
+            include 'navbar.php';
+    ?>
     <!-- navbar -->
 <div class="main">
     <div class="carouse">
@@ -55,13 +48,34 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active ">
-                    <img src="../img/pharmacybanner.jpg" class="d-block w-100 h-50" alt="...">
+
+                <?php
+               
+               /* include 'dbcon.php';
+                //error_reporting(0);
+                $query = "select * from slider";
+
+                $data = mysqli_query($con,$query);
+                $total = mysqli_num_rows($data);
+
+                if($total!=0){
+
+                    while($result = mysqli_fetch_array($data)){  
+                    ?>
+                    <img src=img/sliders/<?php echo '.data:image;base64,'.base64_encode($result["img"]);*/?> alt="not" class="d-block w-100 h-50" >
                     <div class="showcase_text text-light">
                         <h2 >Protect Your Family <br>
                             from CoronaVirus </h2>
                         <h6 >Stay Healthy and Safe !</h6>
                     </div>
                 </div>
+                <?php/*
+                    }
+                    }
+                    else{
+                            echo "No record found";
+                        }*/
+                ?>
                 <div class="carousel-item active">
                     <img src="../img/pharmacybanner.jpg" class="d-block w-100 h-50 " alt="..." >
                      <div class="showcase_text text-light">
@@ -115,14 +129,14 @@
     <div class="uploadform ">
         <button class="btnclose"><i class="fa fa-window-close" aria-hidden="true"></i></button>
         <h2>Upload your Prescription here</h2>
-<form actrion ="#">
-        <input type="file" accept="image/*" capture="camera" / class="text-center" name="photo">
+    <form actrion ="#" class="form1">
+        <input type="file" accept="image/*" capture="camera" / class="text-center" name="photo" required>
         <div class="remark-grid">
             <div class="">
                 <label for="name">Remark <span class="text-red">*</span></label><br>   
             </div>
             <div class="">
-                <textarea name="remark" id="" cols="33" rows="5"></textarea> 
+                <textarea name="remark" id="" cols="33" rows="5" required></textarea> 
             </div>
         </div><br><br>
         <a href="#" class="bg2-btn nextbtn1">Next</a>
@@ -134,7 +148,7 @@
                 <label for="name">Full Name</label><br>   
             </div>
             <div class="">
-                <input type="text" name="name"> <br>
+                <input type="text" name="name" required> <br>
             </div>
         </div>
         <div class="form-grid">
@@ -142,7 +156,7 @@
                 <label for="name">Mobile Number</label><br>   
             </div>
             <div class="">
-                <input type="text" name="mobile"> <br>
+                <input type="text" name="mobile" required> <br>
             </div>
         </div>
         <div class="form-grid">
@@ -150,11 +164,11 @@
                 <label for="name">Medicine For Number of Day's</label><br>   
             </div>
             <div class="">
-                <input type="number" name="number" id=""> <br>
+                <input type="number" name="number" id="" required> <br>
             </div>
         </div><br>
         <div class="button-area">
-        <button type="submit" value="Submit" name="submit" class="bg2-btn mt-3 submitbtn2"> Submit</button>
+        <button type="submit" value="Submit" name="submit1" id="submit1" class="bg2-btn mt-3 submitbtn2"  onclick ="med_pre()"> Submit</button>
         <span>   Sending your Details...</span>
         </div>
         
@@ -169,14 +183,15 @@
     <div class="care-order">
         <button class="btnclose"><i class="fa fa-window-close" aria-hidden="true"></i></button>
         <h2>Upload Your List</h2>
-        <form action="#" name="form2">
-        <input type="file" accept="image/*" capture="camera" / class="text-center img-upload" name="photo">
+        
+        <form actrion="#" name="form2" class="form2" method="POST" enctype="multipart/form-data">
+        <input type="file" accept="image/*" capture="camera" / class="text-center img-upload" name="photo" required>
         <div class="remark-grid">
             <div class="">
                 <label for="name">Remark <span class="text-red">*</span></label><br>   
             </div>
             <div class="">
-                <textarea name="remark" id="" cols="33" rows="5"></textarea>
+                <textarea name="remark" id="" cols="33" rows="5" required></textarea>
             </div>
         </div><br>
         <a href="#" class="bg2-btn nextbtn-care">Next</a>
@@ -199,9 +214,9 @@
                 <input type="text" name="mobile"> <br>
             </div>
         </div><br><br>
-        <div class="button-area">
-        <button type="submit" value="Submit" name="submit" class="bg2-btn mt-3 submitbtn1"> Submit</button>
-        <span>   Sending your Details...</span>
+        <div class="button-area1">
+            <button type="submit" value="Submit" name="submit2" class="bg2-btn mt-3 submitbtn1" onclick ="health_pre()"> Submit</button>
+            <span style="display:none">   Sending your Details... </span>
         </div>
         
     </div>
@@ -351,12 +366,42 @@
         </div>
         <div class="container">
             <div class="today-product mt-5 mb-5">
-                <div class="today-grid">
-                    <div class="card">
-                        <img src="../img/vitaminC.png" alt="" height="180px" width="100%">
-                        <h4>Vitamin C Candy</h4>
-                        <h4 class="text-green">form <span>RS 700</span></h4>
-                    </div>
+                    <?php
+                        include 'dbcon.php';
+                        error_reporting(0);
+                        $query = "select * from product";
+
+                        $data = mysqli_query($con,$query);
+                        $total = mysqli_num_rows($data);
+
+                        if($total!=0){
+                        
+                            while($result = mysqli_fetch_array($data)){
+                                if($column % 3==0)
+                                {
+                                ?> 
+                                <div class="today-grid">
+                                
+                            <?php 
+                                   }
+                                   ?>
+                                    <div class="card">
+                                <img src="AdminApmedico/img/products/<?php echo $result['img'];?>" alt="img" height="180px" width="100%">
+                                <h4> <?php echo $result['name'];?></h4>
+                        <h4 class="text-green"> <span><?php echo Rs." ".$result['price'];?></span></h4>
+                        </div>
+                            <?php
+                               if($column%3 == 2){
+                                    ?></div>
+                                    <?php
+                                } $column++;   
+                        }?>
+<?php                        }else{
+                        echo "no record found";
+                        }
+                    ?>
+                    
+                <!--</div>
                     <div class="card">
                         <img src="../img/hand_sanitizer.png" alt="" height="180px" width="100%">
                         <h4>Vitamin C Candy</h4>
@@ -385,7 +430,7 @@
                         <h4>Vitamin C Candy</h4>
                         <h4 class="text-green">form <span>RS 700</span></h4>
                         
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -399,17 +444,47 @@
         </div>
         <div class="container">
             <div class="today-product mt-5 mb-5">
-                <div class="today-grid">
-                    <div class="card">
-                        <img src="../img/vitaminD3.jpg" alt="" height="180px" width="100%">
-                        <h4>Vitamin D3 25ug 250 Tablets</h4>
-                        <h4 class="text-green"><span>RS 700</span></h4>
+                <?php
+                    include 'dbcon.php';
+                    error_reporting(0);
+                    $query = "select * from product";
+
+                    $data = mysqli_query($con,$query);
+                    $total = mysqli_num_rows($data);
+                    $column=0;
+                    if($total!=0){
                         
-                    </div>
+                        while($result = mysqli_fetch_array($data)){
+                            if($column % 3==0)
+                            {
+                            ?> 
+                            <div class="today-grid">
+                            
+                        <?php 
+                               }
+                               ?>
+                                <div class="card">
+                                <img src="AdminApmedico/img/products/<?php echo $result['img'];?>" alt="img" height="180px" width="100%">
+                                <h4><?php echo $result['name'];?> 25ug 250 Tablets</h4>
+                                <h4 class="text-green"><span><?php echo Rs." ".$result['price'];?></span></h4>
+                        
+                            </div>
+                            <?php
+                               if($column%3 == 2){
+                                    ?></div>
+                                    <?php
+                                } $column++;   
+                        }?>
+<?php                        }else{
+                        echo "no record found";
+                        }
+                    ?>
+                   <!-- 
                     <div class="card">
                         <img src="../img/vitaminCTeb.png" alt="" height="180px" width="100%">
                         <h4>Vitamin C Chewing Tablets 500mg</h4>
                         <h4 class="text-green"><span>RS 700</span></h4>
+                      
                         
                       
                     </div>
@@ -435,7 +510,8 @@
                         <img src="../img/paracetomal.png" alt="" height="180px" width="100%">
                         <h4>Vitamin C Candy</h4>
                         <h4 class="text-green"><span>RS 700</span></h4>
-                    </div>
+                    </div>-->
+                  
                 </div>
             </div>
         </div>
@@ -521,12 +597,12 @@
     <div class="form">
         <div class="form-flex">
             <div class="form-in">
-                <form action="">
+                <form action="wholesaler.php" method="POST" class="wholesaler"> 
                     <h1 class="user-icon"><i class="fa fa-user text-center" aria-hidden="true"></i></h1>
                     <label for="username">Username</label> 
-                    <input type="text" name="" id="" placeholder="Username"> <br><br>
+                    <input type="text" name="username" id="" placeholder="Username"> <br><br>
                     <label for="password">Password</label>
-                    <input type="password" name="" id="" placeholder="Password"><br><br>
+                    <input type="password" name="password" id="" placeholder="Password"><br><br>
                     <h5 class="text-center">If You Don't Have A Credentials Kindly Call 4152637895 </h5><br>
                     <input type="submit" value="Login" class="btn " id ="loginbtn">
                 </form>         
@@ -542,57 +618,9 @@
     
 
     <!-- Footer -->
-    <div class="footer">
-        <div class="footer-grid">
-            <div class="footer-heading">
-                <div class="leoshine">
-                    <span class="brand-text">Apmedico</span>
-                    <p class="footer-para">Scelerisque sit et bibendum molestie duis in velit dis. Ac viverra nunc nulla sed dui. Et faucibus lobortis ultrices fermentum luctus feugiat semper. </p>
-                </div>
-            </div>
-            <div class="footer-about">
-                <ul>
-                    <li>About Us</li>
-                    <li>Shop</li>
-                    <li>Term</li>
-                    <li>Services</li>
-                    <li>Contact Us</li>
-                </ul>
-            </div>
-            <div class="footer-contact">
-                <span>Contact Us</span>
-                <div class="contact-felx">
-                    <div class="icon">
-                        <i class="fa fa-envelope" aria-hidden="true"></i>
-                    </div>
-                    <div class="">
-                        <span>apmedico@gmail.com</span>
-                    </div>
-                </div>
-                <div class="contact-felx">
-                    <div class="icon">
-                        <i class="fa fa-phone" aria-hidden="true"></i>
-                    </div>
-                    <div class="">
-                        <span>9876543210</span>
-                    </div>
-                </div>
-                <div class="contact-felx">
-                    <div class="icon">
-                        <i class="fa fa-map-marker-alt" aria-hidden="true"></i>
-                    </div>
-                    <div class="">
-                        <span>2118 Thornridge cir.syracuse, connecticut 35624</span>
-                    </div>
-                </div>
-            </div>
-            <div class="singup">
-                <span> Sing up for Update</span>
-                <input type="text" name="" id="" placeholder="Email"><br>
-                <input type="submit" value="Submit" class="btn btn-dark">
-            </div>
-        </div>
-    </div>
+    <?php
+            include 'footer.php';
+    ?>
     <script src="script.js"></script>
     <script src="../js/jquery.js"></script>
     <script src="../js/myjs.js"></script>

@@ -43,15 +43,17 @@ $(document).ready(function(){
     $(".who-btn").click(function(){
         $(".userpopup").hide();
         $(".form").show();
-        $(".main").css("opacity","0.1")
-        console("form is submitted")
+        $(".main").css("opacity","0.1");
+        
+       // console.log("form is submitted1");
     });
 
-    /*$("form").submit(function(e){
+    /*$(".wholesaler").submit(function(e){
         $(".form").hide();
+
         $(".main").css("opacity","1")
-        console.log("form submitted")
-        e.preventDefault()
+        console.log("form submitted");
+        e.preventDefault();
     });*/
     $(".medico").mouseenter(function () { 
         $(".count").each(function () {

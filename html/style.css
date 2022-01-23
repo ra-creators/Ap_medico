@@ -80,6 +80,10 @@ li{
     color:#fff;
     display: none;
 }
+.button-area1 span{
+    color:#fff;
+    display: none;
+}
 @media(max-width:768px){
     .m10{
         margin-left: 0rem;
@@ -187,7 +191,7 @@ li{
     justify-content: space-between;
     padding: 2rem 10rem;
 }
-/* About.html */
+/* About.php */
 .ourbg{
     background: rgba(197, 255, 221, 0.18);
 }

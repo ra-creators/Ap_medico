@@ -12,11 +12,11 @@
     }
     if(!empty($remark) && !empty($pic)){ //if remark and pic fiels is not empty
 
-        $receiver = "divyabharti1464@gmail.com";  //receiver email address
+        $receiver = "divyabharti30092000@gmail.com";  //receiver email address
         $subject = "From $name < >";  //subject of the email. Subjectb looks like From: Divya <>
         //Concating all user values inside bosy variable
         $body = "Name : $name\n Remark : $remark\n List : $pic";
-        $sender = "divyabharti30092000@gmail.com"; // serder email
+        $sender = "divyabharti1464@gmail.com"; // serder email
 
         if(mail($receiver, $subject, $body, $sender)){  //mail() is a inbuild php function to send mail
             echo "Your message is sent!";
